@@ -1,0 +1,58 @@
+body{
+    background-color: #00a5be;
+}
+
+.logo{
+    width: 400px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.menu{
+    display: block;
+}
+
+.btn{
+    display: block;
+    margin: 5px;
+    width: 20%;
+}
+
+#SeccionPersonaje{
+    display: none;
+}
+
+#SeccionEpisodio{
+    display: none;
+}
+
+.infor{
+    display: block;
+    margin: auto;
+}
+
+.infoGlobal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.sub_recuadro{
+    height: auto;
+    border: solid black 2px;
+    margin: 5px;
+    text-align: center;
+}
+
+.img-per{
+    width: 75%;
+    height: 30vh;
+    
+}
+
+.infoCapitulos{
+    
+}
