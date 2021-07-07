@@ -3,23 +3,7 @@ const base_Url_Episodios = 'https://rickandmortyapi.com/api/episode/id';
 
 const boton = document.getElementById('bot');
 
-boton.addEventListener('click',function(){
-    const Person = document.getElementById('Per');
-    const url = `${base_Url_Personajes.replace('Pers',Person.value)}`
-
-    fetch(url)
-    .then((respuesta)=>respuesta.json())
-    .then((ResponseJson) => mostrarData(ResponseJson))
-    .catch(error => console.log(error));
-})
-
-const mostrarData = (ResponseJson) => {
-    //Aqui convertimos El Json como Obejto a un Array
-    const arrayPer = Object.entries(ResponseJson.results);
-    
-    addCharacter(arrayPer);
-}
-
+//funcion princial API 
 async function apiCapitulos(){
     
     for(var id=1;id<=41;id++){   
@@ -29,6 +13,25 @@ async function apiCapitulos(){
         .then((ResponseJson) => mostrarEpisodios(ResponseJson))
     }
 }
+
+
+boton.addEventListener('click',function(){
+    const Person = document.getElementById('Per');
+    const url = `${base_Url_Personajes.replace('Pers',Person.value)}`
+
+    fetch(url)
+        .then((respuesta)=>respuesta.json())
+        .then((ResponseJson) => mostrarData(ResponseJson))
+        .catch(error => console.log(error));
+})
+
+const mostrarData = (ResponseJson) => {
+    //Aqui convertimos El Json como Obejto a un Array
+    const arrayPer = Object.entries(ResponseJson.results);
+    
+    addCharacter(arrayPer);
+}
+
 
 const mostrarEpisodios = (ResponseJson) =>{
 
@@ -70,7 +73,7 @@ function addCharacter(arrayPer){
         en element[1] 1-> hace referencia a la posicion del arreglo en esta Api [1] es
         donde se encuentra la informacion de cada Personaje dentro de Results*/
         var informacionContent = `
-            <p> ${element[1].name}</p>
+            <p class="box-name"> ${element[1].name}</p>
             <p class=""><b> ${element[1].status}</b></p>
             <p class=""> ${element[1].species}</p>
             <p class=""> ${element[1].gender}</p>
@@ -100,6 +103,8 @@ botonCapitulos.addEventListener('click',function(){
     apiCapitulos();
 })
 
+
+//SECION DE BOTON REGRESAR, LOGICA Y COMPONENTE VISUAL
 const botonRegresar = document.querySelectorAll('.regresoMenu');
 const regresarMenu = function(evento){
     seccionPersonaje.style.display = "none";
